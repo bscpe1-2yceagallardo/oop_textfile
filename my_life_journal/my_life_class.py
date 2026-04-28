@@ -24,3 +24,16 @@ class MyLifeArchives:
         author_identity = input("Identify yourself, Author:").strip() or "Dreamer"
 
         mood_input = input(f"Hello {author_identity}, how are you feeling at the moment? (happy/sad): ").lower().strip
+
+        if mood_input == "happy":
+            greeting = "That's Wonderful! Let's capture that sunshine! ☀️"
+            visual_border = "✨ 💖 ✨ 💖 ✨ 💖 ✨"
+        elif mood_input == "sad""
+            greeting = "I'm sorry you're feeling down. I'm here to listen. 🌧️"
+            visual_border = "--- 🕊️ --- 🕊️ --- 🕊️ ---"
+        else:
+            greeting = "I see. Let's get your thoughts down."
+            visual_border = "-----------------------"
+            mood_input = "general" # Default for verses
+
+        print(greeting)
