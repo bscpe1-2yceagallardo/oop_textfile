@@ -44,3 +44,9 @@ class NumberDistinguisher:
             "even": stats(self.even_numbers_collection),
             "odd": stats(self.odd_numbers_collection)
         }
+
+    def showing_summary(self):
+        print("Even Numbers:", self.even_numbers_collection)
+        print("Odd Numbers:", self.odd_numbers_collection)
+        print("Invalid Numbers:", self.invalid_entries)
+        print("Statistics:", self.computing_statistics())
