@@ -30,3 +30,17 @@ class NumberDistinguisher:
         with open(invalid_file, 'w') as invalids_file:
             for bad_value in self.invalid_entries:
                 invalids_file.write(str(bad_value) + "\n")
+
+    def computing_statistics(self):
+        def stats(numbers):
+            return {
+                "count": len(numbers),
+                "sum":sum(numbers),
+                "average": sum(numbers) / len(numbers) if numbers else 0,
+                "min": min(numbers),
+                "max": max(numbers)
+            }
+        return {
+            "even": stats(self.even_numbers_collection),
+            "odd": stats(self.odd_numbers_collection)
+        }
