@@ -46,7 +46,7 @@ class NumberDistinguisher:
         }
 
     def showing_summary(self):
-        print("Even Numbers:", self.even_numbers_collection)
-        print("Odd Numbers:", self.odd_numbers_collection)
-        print("Invalid Numbers:", self.invalid_entries)
-        print("Statistics:", self.computing_statistics())
+        print(f"\033[92mEven Numbers:\033[0m", self.even_numbers_collection)
+        print(f"\033[93mOdd Numbers:\033[0m", self.odd_numbers_collection)
+        print(f"\033[94mInvalid Numbers:\033[0m", self.invalid_entries)
+        print(f"\033[95mStatistics:\033[0m", self.computing_statistics())
