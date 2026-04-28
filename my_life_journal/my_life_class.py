@@ -19,4 +19,6 @@ class MyLifeArchives:
                 "Jeremiah 29:11 - 'For I know the plans I have for you, declares the Lord.'"
             ]
         }
-        
+
+    def open_journal(self):
+        author_identity = input("Identify yourself, Author:").strip() or "Dreamer"
