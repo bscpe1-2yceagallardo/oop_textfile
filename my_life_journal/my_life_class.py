@@ -72,3 +72,9 @@ class MyLifeArchives:
                     f"MEDITATION: {verse_of_the_day}\n"
                 )
                 journal_file.write(footer)
+
+            print(f"\n📖 Your Motivation: {verse_of_the_day}")
+            print(f"🌟{self.lines_committed} entries saved. Your feelings are safe with me. Goodbye! 🌟")
+
+        except IOError as error:
+            print(f"❌ Error saving to disk: {error}")
