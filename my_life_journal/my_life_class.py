@@ -1,9 +1,10 @@
 import datetime
+import random
 
 class MyLifeArchives:
     def __init__(self, archive_name="mylife.txt"):
         self.archive_name = archive_name
-        self.lines_commited = 0
+        self.lines_committed = 0
         # Verse Library for God's Affirmation
         self.bible_verses = {
             "happy": [
@@ -43,12 +44,23 @@ class MyLifeArchives:
         try:
             with open(self.archive_name, "a", encoding="utf-8") as journal_file:
                 # Timestamp
-                session_start = datetime.datetime.now().strtime("%Y-%m-%d %H:%M:%S")
+                session_start = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 journal_file.write(f"\n---SESSION START: {session_start} | MOOD: {mood_input.upper()}---\n")
 
                 is_active = True
                 while is_active:
                     user_text = input("Enter line: ")
-                    entry_time = datetime.datetime.now().strtime("%H:%M:%S")
+                    entry_time = datetime.datetime.now().strftime("%H:%M:%S")
 
+                    # Intensity Tagging
+                    intensity = "[DEEP THOUGHT]" if len(user_text) > 50 else "[QUICK NOTE]"
 
+                    formatted_line = f"{visual_border}\n[{entry_time}] {intensity} {author_identity}: {user_text}\n"
+                    journal_file.write(formatted_line)
+                    self.lines_committed += 1
+
+                    if input("Add more? y/n: ").lower() != 'y':
+                        is_active = False
+
+                # Select verse based on mood
+                verse_of_the_day = random.choice(self.bible_verses.get(mood_input, self.bible_verse["general"]))
