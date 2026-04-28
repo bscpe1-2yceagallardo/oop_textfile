@@ -9,7 +9,7 @@ class MyLifeArchives:
         self.bible_verses = {
             "happy": [
                 "Psalms 118:24 - 'This is the day the Lord has made; let us rejoice and be glad in it.'",
-                "Proverbs 17:22 - 'A chherful heart is good medicine.'",
+                "Proverbs 17:22 - 'A cheerful heart is good medicine.'",
                 "Philippians 4:4 - 'Rejoice in the Lord always. I will say it again: Rejoice!'"
             ],
             "sad": [
@@ -63,12 +63,12 @@ class MyLifeArchives:
                         is_active = False
 
                 # Select verse based on mood
-                verse_of_the_day = random.choice(self.bible_verses.get(mood_input, self.bible_verse["general"]))
+                verse_of_the_day = random.choice(self.bible_verses.get(mood_input, self.bible_verses["general"]))
 
                 # Checksum Footer
                 footer = (
                     f"---SESSION CLOSED---\n"
-                    f"COMMITED: {self.lines_commited} lines\n"
+                    f"COMMITED: {self.lines_committed} lines\n"
                     f"MEDITATION: {verse_of_the_day}\n"
                 )
                 journal_file.write(footer)
