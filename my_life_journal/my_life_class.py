@@ -64,3 +64,11 @@ class MyLifeArchives:
 
                 # Select verse based on mood
                 verse_of_the_day = random.choice(self.bible_verses.get(mood_input, self.bible_verse["general"]))
+
+                # Checksum Footer
+                footer = (
+                    f"---SESSION CLOSED---\n"
+                    f"COMMITED: {self.lines_commited} lines\n"
+                    f"MEDITATION: {verse_of_the_day}\n"
+                )
+                journal_file.write(footer)
