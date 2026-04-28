@@ -1,3 +1,5 @@
+import datetime
+
 class MyLifeArchives:
     def __init__(self, archive_name="mylife.txt"):
         self.archive_name = archive_name
@@ -28,7 +30,7 @@ class MyLifeArchives:
         if mood_input == "happy":
             greeting = "That's Wonderful! Let's capture that sunshine! ☀️"
             visual_border = "✨ 💖 ✨ 💖 ✨ 💖 ✨"
-        elif mood_input == "sad""
+        elif mood_input == "sad":
             greeting = "I'm sorry you're feeling down. I'm here to listen. 🌧️"
             visual_border = "--- 🕊️ --- 🕊️ --- 🕊️ ---"
         else:
@@ -37,3 +39,16 @@ class MyLifeArchives:
             mood_input = "general" # Default for verses
 
         print(greeting)
+
+        try:
+            with open(self.archive_name, "a", encoding="utf-8") as journal_file:
+                # Timestamp
+                session_start = datetime.datetime.now().strtime("%Y-%m-%d %H:%M:%S")
+                journal_file.write(f"\n---SESSION START: {session_start} | MOOD: {mood_input.upper()}---\n")
+
+                is_active = True
+                while is_active:
+                    user_text = input("Enter line: ")
+                    entry_time = datetime.datetime.now().strtime("%H:%M:%S")
+
+
