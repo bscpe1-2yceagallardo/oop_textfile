@@ -22,3 +22,5 @@ class MyLifeArchives:
 
     def open_journal(self):
         author_identity = input("Identify yourself, Author:").strip() or "Dreamer"
+
+        mood_input = input(f"Hello {author_identity}, how are you feeling at the moment? (happy/sad): ").lower().strip
