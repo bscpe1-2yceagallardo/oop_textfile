@@ -25,10 +25,22 @@ class NumberTransformerEngine:
                     if integer_value % 2 == 0:
                         # For even logic square
                         transformed_result = integer_value ** 2
-                        targer_file = even_file
+                        target_file = even_file
                         category = "EVEN_SQUARE"
                     else:
                         # For odd logic cube
                         transformed_result = integer_value ** 3
-                        targer_file = odd_file
+                        target_file = odd_file
                         category = "ODD_CUBE"
+
+                    # Applying Calculation Cap
+                    if abs(transformed_result) > self.calculation_cap:
+                        audit_file.write(f"Line {line_number}: {category} SKIPPED (Value exceeds safety cap)\n")
+                    else:
+                        target_file.write(f"{transformed_result}\n")
+                        audit_file.write(f"Line {line_number}: {category} SUCCESS ({integer_value} -> {transformed_result})\n")
+
+            print("Processing complete. Please review double.txt, triple.txt, and audit_log.txt")
+
+        except FileNotFoundError:
+            print(f"Error: Source file '{self.source_path}' not found. Please create it with 20 integers.")
