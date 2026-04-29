@@ -29,5 +29,15 @@ class StudentGwaSpotter:
         return best_student[0], best_student[1], status
 
     def top_three(self):
-            sorted_list= sorted(self.students_records, key=lambda student: student[1])
-            return [(name, gwa, self.get_honor_status(gwa) for name, gwa in sorted_list[:3])]
+        sorted_list= sorted(self.students_records, key=lambda student: student[1])
+        return [(name, gwa, self.get_honor_status(gwa) for name, gwa in sorted_list[:3])]
+
+    def get_class_analytics(self):
+        if not self.students_records:
+            return 0, 0
+        total_gwa = sum(student[1] for student in self.students_records)
+        average = total_gwa / len(self.students_records)
+        highest = min(student[1] for student in self.students_records)
+        lowest = max(student[1] for student in self.students_records)
+        return round (average, 2), highest, lowest
+
