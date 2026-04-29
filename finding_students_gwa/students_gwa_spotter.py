@@ -13,7 +13,7 @@ class StudentGwaSpotter:
         except FileNotFoundError:
             print("Error:  The data file was not found.")
 
-    def get_honor_student(self, gwa):
+    def get_honor_status(self, gwa):
         if 1.0 <= gwa <= 1.25:
             return "President's Lister 🏆"
         elif 1.26 <= gwa <= 1.50:
@@ -24,6 +24,10 @@ class StudentGwaSpotter:
             return "Passing"
 
     def finding_highest_gwa(self):
-        best_student = min(self.student_records, key=lambda student[1])
+        best_student = min(self.students_records, key=lambda student: student[1])
         status = self.get_honor_status(best_student[1])
         return best_student[0], best_student[1], status
+
+    def top_three(self):
+            sorted_list= sorted(self.students_records, key=lambda student: student[1])
+            return [(name, gwa, self.get_honor_status(gwa) for name, gwa in sorted_list[:3])]
