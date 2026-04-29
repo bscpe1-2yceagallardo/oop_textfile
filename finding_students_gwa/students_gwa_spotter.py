@@ -41,3 +41,9 @@ class StudentGwaSpotter:
         lowest = max(student[1] for student in self.students_records)
         return round (average, 2), highest, lowest
 
+    def searching_student(self, target_name):
+        ranked_list = sorted(self.students_records, key=lambda student: student[1])
+        for index, (name, gwa) in enumerate(ranked_list, start=1):
+            if target_name.lower() in name.lower():
+                return {"rank": index, "gwa": gwa, "status": self.get_honor_status(gwa), "name": name}
+        return None
