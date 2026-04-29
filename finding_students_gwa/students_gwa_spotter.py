@@ -22,3 +22,8 @@ class StudentGwaSpotter:
             return "Honor Roll 🎖️"
         else:
             return "Passing"
+
+    def finding_highest_gwa(self):
+        best_student = min(self.student_records, key=lambda student[1])
+        status = self.get_honor_status(best_student[1])
+        return best_student[0], best_student[1], status
